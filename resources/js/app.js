@@ -1,4 +1,5 @@
+import "../css/form.css";
 import { createApp } from "vue";
-import ZohoForm from "./ZohoForm.vue";
+import ZohoFormPage from "./pages/ZohoFormPage.vue";
 
-createApp(ZohoForm).mount("#app");
+createApp(ZohoFormPage).mount("#app");
