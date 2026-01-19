@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\ZohoCrmServiceContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ZohoSubmitRequest;
-use App\Services\ZohoCrmService;
-use Illuminate\Http\Request;
 
 class ZohoFormController extends Controller
 {
-    public function submit(ZohoSubmitRequest $request, ZohoCrmService $zoho)
+    public function submit(ZohoSubmitRequest $request, ZohoCrmServiceContract $zoho)
     {
         $data = $request->validated();
         try {

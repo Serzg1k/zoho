@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\ZohoCrmServiceContract;
+use App\Services\ZohoCrmService;
 use App\Support\ZohoConfig;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,6 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->bind(
+            ZohoCrmServiceContract::class,
+            ZohoCrmService::class
+        );
+
         $this->app->singleton(ZohoConfig::class, function () {
             $cfg = new ZohoConfig(
                 accountsUrl: rtrim((string) config('zoho.accounts_url'), '/'),

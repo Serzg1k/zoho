@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
+use App\Contracts\ZohoCrmServiceContract;
 use App\Zoho\ZohoEndpoint;
 use App\Support\ZohoConfig;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\Response;
 
-readonly class ZohoCrmService
+readonly class ZohoCrmService implements ZohoCrmServiceContract
 {
     public function __construct(
         private ZohoApiClient $api,
